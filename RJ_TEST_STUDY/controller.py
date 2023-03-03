@@ -10,6 +10,10 @@ def controller(ym):
      return 0.9 * ym
 
 concore.default_maxtime(150) ##maps to-- for i in range(0,150):
+concore.delay = 0.02
+
+init_simtime_u = "[0.0, 0.0]"
+init_simtime_ym = "[0.0, 0.0]"
 
 u = np.array([concore.initval(init_simtime_u)]).T
 while(concore.simtime<concore.maxtime):
