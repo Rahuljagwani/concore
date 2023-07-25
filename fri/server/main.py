@@ -182,6 +182,7 @@ def contribute():
         if(platform.uname()[0]=='Windows'):
             proc=check_output(["contribute",STUDY_NAME,STUDY_NAME_PATH,AUTHOR_NAME,BRANCH_NAME,PR_TITLE,PR_BODY],cwd=concore_path,shell=True)
         else:
+            call(["chmod", "+x", "contribute"])
             if len(BRANCH_NAME)==0:
                 proc = check_output(["./contribute",STUDY_NAME,STUDY_NAME_PATH,AUTHOR_NAME],cwd=concore_path)
             else:
