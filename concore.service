@@ -1,0 +1,11 @@
+[Unit]
+Description=concore service
+
+[Service]
+User=__USERNAME__
+WorkingDirectory=__INSTALL_DIR__
+ExecStart=__COMMAND__
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

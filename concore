@@ -1,0 +1,22 @@
+#!/bin/bash
+
+USERNAME=$(whoami)
+INSTALL_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+cd ~
+cd $INSTALL_DIR
+pip3 install -r requirements.txt
+cd "fri"
+pip3 install -r requirements.txt
+
+sed -i "s/__USERNAME__/$USERNAME/g" concore.service
+sed -i "s|__INSTALL_DIR__|$INSTALL_DIR|g" concore.service
+CUSTOM_COMMAND="cd __INSTALL_DIR__/fri/server && python3 main.py"
+sed -i "s|__CUSTOM_COMMAND__|$CUSTOM_COMMAND|g" concore.service
+
+sudo mv concore.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable concore
+sudo systemctl start concore
+
+echo "Installation completed."
