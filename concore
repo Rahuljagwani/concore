@@ -22,8 +22,6 @@ cd ..
 
 sed -i "s/__USERNAME__/$USERNAME/g" concore.service
 sed -i "s|__INSTALL_DIR__|$INSTALL_DIR|g" concore.service
-CUSTOM_COMMAND="cd __INSTALL_DIR__/fri/server && python3 main.py"
-sed -i "s|__CUSTOM_COMMAND__|$CUSTOM_COMMAND|g" concore.service
 
 sudo cp concore.service /etc/systemd/system/
 sudo systemctl daemon-reload
