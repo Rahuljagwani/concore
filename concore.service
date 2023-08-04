@@ -4,7 +4,7 @@ Description=concore service
 [Service]
 User=__USERNAME__
 WorkingDirectory=__INSTALL_DIR__
-ExecStart=__COMMAND__
+ExecStart=/bin/bash -c "cd __INSTALL_DIR__/fri/server && python3 main.py"
 Restart=always
 
 [Install]
